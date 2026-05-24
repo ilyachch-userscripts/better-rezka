@@ -11,7 +11,7 @@ export class ParseManager {
 
   private button: HTMLButtonElement | null = null;
 
-  private stopCommandId: number | null = null;
+  private stopCommandId: string | number | null = null;
 
   setupMenu() {
     GM_registerMenuCommand('Start Parsing', () => {

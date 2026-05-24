@@ -11,6 +11,9 @@ export default defineConfig({
   plugins: [
     monkey({
       entry: 'src/main.ts',
+      build: {
+        fileName: 'better-rezka.user.js',
+      },
       userscript: {
         name: SCRIPT_NAME,
         namespace: NAMESPACE,
@@ -23,7 +26,6 @@ export default defineConfig({
         supportURL: 'https://github.com/ilyachch-userscripts/better-rezka/issues',
         updateURL: 'https://github.com/ilyachch-userscripts/better-rezka/releases/latest/download/better-rezka.user.js',
         downloadURL: 'https://github.com/ilyachch-userscripts/better-rezka/releases/latest/download/better-rezka.user.js',
-        fileName: 'better-rezka.user.js',
         'run-at': 'document-end',
       },
     }),
