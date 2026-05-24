@@ -4,7 +4,7 @@ import monkey from 'vite-plugin-monkey';
 // === Configuration ===
 const SCRIPT_NAME = 'Better Rezka';
 const NAMESPACE = 'https://github.com/ilyachch';
-const ICON_URL = 'https://www.google.com/s2/favicons?sz=64&domain=github.com';
+const ICON_URL = 'https://www.google.com/s2/favicons?sz=64&domain=rezka.ag';
 // =====================
 
 export default defineConfig({
