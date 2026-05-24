@@ -1,23 +1,35 @@
 import './style.css';
 
+import { addYearLinks } from './page/addYearLinks';
+import { autoNextEpisode } from './page/autoNextEpisode';
+import { removeConfirmationRequestBeforeMarkAsWatched } from './page/removeConfirmationRequestBeforeMarkAsWatched';
+import { removeDuplicatesFromNewest } from './page/removeDuplicatesFromNewest';
+import { watchNewestSliderContentBlockChanges } from './page/watchNewestSliderContentBlockChanges';
+import { Marker } from './services/marker';
+import { ParseManager } from './services/parseManager';
+import { RatingMarker } from './services/ratingMarker';
+import { log } from './utils/log';
+
 function init() {
-  console.log('Userscript loaded: Better Rezka');
+  log('Initializing Better Rezka script...');
 
-  const container = document.createElement('div');
-  container.id = 'my-userscript-container';
-  container.innerHTML = `
-    <div>Hello from <b>Better Rezka</b>!</div>
-    <button id="my-btn">Click me</button>
-  `;
+  const marker = new Marker();
 
-  document.body.appendChild(container);
+  autoNextEpisode();
+  addYearLinks();
+  removeDuplicatesFromNewest();
+  removeConfirmationRequestBeforeMarkAsWatched();
+  void marker.markVideosWithStatuses();
+  watchNewestSliderContentBlockChanges();
 
-  const btn = container.querySelector('#my-btn');
-  if (btn) {
-    btn.addEventListener('click', () => {
-      alert('Button clicked inside Userscript!');
-    });
-  }
+  const ratingMarker = new RatingMarker();
+  ratingMarker.markRating();
+
+  const parseManager = new ParseManager();
+  parseManager.setupMenu();
+  parseManager.setupButton();
+
+  log('Better Rezka script initialized successfully.');
 }
 
 init();

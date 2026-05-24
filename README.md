@@ -1,6 +1,6 @@
 # Better Rezka
 
-Tampermonkey app
+Userscript for Rezka with status markers, ratings, and parsing controls.
 
 ## Installation
 
